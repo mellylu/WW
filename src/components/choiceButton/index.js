@@ -30,6 +30,7 @@ background-color: #F6F6F6;
 
 const Menu = styled.View`
 align-items: center;
+
 `
 
 const MenuLigne = styled.View`

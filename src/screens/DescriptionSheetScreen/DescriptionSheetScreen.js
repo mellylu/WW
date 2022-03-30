@@ -24,7 +24,7 @@ const DescriptionSheetScreen = ({ route }) => {
     return (
         <View>
             <ScrollView>
-                <Modal>
+                <Modal size={250} backgroundColor={"#013252"}>
                     <ImageFood
                         source={{ uri: food.image }}
                     />
@@ -37,12 +37,12 @@ const DescriptionSheetScreen = ({ route }) => {
                                 <TextFood></TextFood>
                                 <TextName>{food.name}</TextName>
                                 <Text></Text>
-                                <TextFood>{food.description}</TextFood>
+                                <TextFood color={'#013252'}>{food.description}</TextFood>
                                 <TextFood></TextFood>
                                 {
                                     food.ingredients ? (
                                         <>
-                                            <TextName>Ingrédients</TextName>
+                                            <TextName textDecorationLine={'underline'} >Ingrédients</TextName>
 
                                             
                                                 <FlatList
@@ -74,22 +74,23 @@ const DescriptionSheetScreen = ({ route }) => {
 
 const Modal = styled.View`
    width: 100%;
-    height: 250px;
-    background-color: #013252;
+    height: ${props => props.size};
+    background-color: ${props => props.backgroundColor};
 `
 
 const TextFood = styled.Text`
-    color:#013252;
+    color: ${props => props.color};
     text-align:center;
     margin-left:10px;
     margin-right:10px;
+    
 `
 
 const TextName = styled.Text`
     color:#013252;
     text-transform : uppercase;
     text-align:center;
-    text-decoration: underline;
+    text-decoration: ${props => props.textDecorationLine};
 `
 
 const ImageFood = styled.Image`
