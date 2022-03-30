@@ -12,14 +12,17 @@ const AccessPhoto = () => {
         const options = {
             noData: true,
         };
+        console.log('1')
+
         ImagePicker.launchImageLibrary(options, response => {
-            response.assets.map(address => {
-                console.log("addresse")
-                console.log(address.uri)
-                if (address.uri) {
-                    setPhoto({ uri: address.uri })
-                }
-            })
+            if (response.didCancel !== true) {
+                response.assets.map(address => {
+                    if (address.uri) {
+                        setPhoto({ uri: address.uri })
+                    }
+                })
+            }
+
         })
     }
 
